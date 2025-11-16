@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Elite Sport - Objectif 5 KM</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e6eefc;
+      color: #00367e;
+    }
+
+    /* --- NAVBAR --- */
+    nav {
+      background-color: #00367e;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 12px 20px;
+      font-weight: 700;
+    }
+    nav a, nav span {
+      color: white;
+      text-decoration: none;
+    }
+    nav a:hover { text-decoration: underline; }
+
+    /* --- HEADER --- */
+    .header {
+      background: #00367e;
+      color: white;
+      font-weight: bold;
+      padding: 15px 10px;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    h2, h3, h1 {
+      text-align: center;
+      color: #00367e;
+      margin: 10px 0;
+    }
+    h1 { font-size: 2.5em; font-weight: 700; }
+
+    .retour {
+      display: block;
+      width: 120px;
+      background-color: #00367e;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 10px auto 25px auto;
+    }
+    .retour:hover { background-color: #002b5c; }
+
+    /* --- TABLEAU --- */
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #a9d3ff;
+      border: 2px solid #00367e;
+      margin: 0 auto 30px auto;
+      border-radius: 10px;
+      max-width: 1200px;
+      box-shadow: 0 3px rgba(0,0,0,0.2);
+    }
+    .stats-section {
+      flex: 1;
+      min-width: 280px;
+      padding: 15px 25px;
+    }
+    .stats-section h3 { font-size: 1.3rem; margin-bottom: 10px; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #00367e;
+      font-weight: 600;
+    }
+    td { padding: 5px 0; font-size: 0.95rem; }
+    td:first-child { font-weight: 600; }
+    .stats-section:nth-child(1), .stats-section:nth-child(2) { border-right: 2px solid #00367e; }
+
+    /* --- BAS DE PAGE --- */
+    .bottom-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 25px auto;
+    }
+    .card {
+      background-color: #a9d3ff;
+      border: 2px solid #00367e;
+      border-radius: 10px;
+      box-shadow: 0 3px rgba(0,0,0,0.2);
+      flex: 1;
+      min-width: 340px;
+      padding: 15px 20px;
+    }
+    .card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+
+    .map {
+      width: 100%;
+      height: 300px;
+      background: url('5km-map.png') no-repeat center;
+      background-size: contain;
+      border-radius: 10px;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 250px;
+    }
+    canvas { width: 100% !important; height: 100% !important; }
+
+    @media (max-width: 800px) {
+      .stats-section:nth-child(1), .stats-section:nth-child(2) { border-right: none; border-bottom: 2px solid #00367e; }
+    }
+    @media (max-width: 480px) {
+      .chart-wrapper { height: 200px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html">ACCUEIL</a><span>|</span>
+    <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+    <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+    <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+    <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+    <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+    <a href="conseils.html">CONSEILS</a>
+  </nav>
+
+  <!-- HEADER & TITRE -->
+  <div class="header">Objectif 5 KM</div>
+  <h3>Échauffement mental</h3>
+  <a class="retour" href="objectifs.html">RETOUR</a>
+
+  <!-- STATS TABLE -->
+  <div class="stats-container">
+    <div class="stats-section">
+      <h3>Activité</h3>
+      <table>
+        <tr><td>Distance</td><td>5,12 km</td></tr>
+        <tr><td>Durée</td><td>00:32:15</td></tr>
+        <tr><td>Allure moy</td><td>6:17 /km</td></tr>
+        <tr><td>Dénivelé +</td><td>94 m</td></tr>
+        <tr><td>Calories</td><td>380 kcal</td></tr>
+        <tr><td>Altitude max</td><td>309 m</td></tr>
+      </table>
+    </div>
+
+    <div class="stats-section">
+      <h3>Meilleurs efforts</h3>
+      <table>
+        <tr><td>400 m</td><td>1:50</td><td>4:35/km</td></tr>
+        <tr><td>½ mile</td><td>4:05</td><td>5:04/km</td></tr>
+        <tr><td>1 km</td><td>5:09</td><td>5:09/km</td></tr>
+        <tr><td>1 mile</td><td>8:25</td><td>5:14/km</td></tr>
+        <tr><td>2 miles</td><td>27:33</td><td>8:34/km</td></tr>
+        <tr><td>5 km</td><td>51:02</td><td>10:12/km</td></tr>
+      </table>
+    </div>
+
+    <div class="stats-section">
+      <h3>Temps intermédiaires</h3>
+      <table>
+        <tr><td>1 km</td><td>6:01</td></tr>
+        <tr><td>2 km</td><td>7:26</td></tr>
+        <tr><td>3 km</td><td>6:02</td></tr>
+        <tr><td>4 km</td><td>5:16</td></tr>
+        <tr><td>5 km</td><td>6:40</td></tr>
+        <tr><td>0,1 km</td><td>6:32</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- BAS DE PAGE -->
+  <div class="bottom-container">
+    <div class="card">
+      <h3>Parcours</h3>
+      <div class="map"></div>
+    </div>
+
+    <div class="card">
+      <h3>Comparatif :</h3>
+      <div class="chart-wrapper">
+        <canvas id="comparatifChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT CHART.JS -->
+  <script>
+    const ctx = document.getElementById('comparatifChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['1 km', '2 km', '3 km', '4 km', '5 km'],
+        datasets: [
+          {
+            label: '1 - 5 km',
+            data: [5.33, 6.13, 6.32, 6.19, 6.28],
+            borderColor: 'rgba(255, 87, 34, 1)',
+            backgroundColor: 'rgba(255, 87, 34, 0.3)',
+            tension: 0.3,
+            fill: true
+          },
+          {
+            label: '2 - 5 km',
+            data: [4.12, 5.41, 6.26, 5.50, 6.15],
+            borderColor: 'rgba(255, 193, 7, 1)',
+            backgroundColor: 'rgba(255, 193, 7, 0.3)',
+            tension: 0.3,
+            fill: true
+          },
+          {
+            label: '3 - 5 km',
+            data: [6.01, 7.26, 6.02, 5.16, 5.40],
+            borderColor: 'rgba(76, 175, 80, 1)',
+            backgroundColor: 'rgba(76, 175, 80, 0.3)',
+            tension: 0.3,
+            fill: true
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: true,
+            labels: { color: '#00367e', font: { weight: 'bold' } }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#00367e' }, grid: { color: 'rgba(0,0,0,0.1)' } },
+          y: { ticks: { color: '#00367e' }, grid: { color: 'rgba(0,0,0,0.1)' } }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

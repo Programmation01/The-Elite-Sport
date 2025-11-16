@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Elite Sport - Stats Vélo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e6eefc;
+      color: #00367e;
+    }
+
+    /* --- NAVBAR --- */
+    nav {
+      background-color: #00367e;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 12px 20px;
+      font-weight: 700;
+    }
+
+    nav a, nav span {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- HEADER --- */
+    .header {
+      background-image: url('banniere-3.png');
+      background-size: cover;
+      background-position: center;
+      text-align: center;     
+      padding: 25px 5px;      
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);      
+      font-size: 2.2em;      
+      font-weight: bold; 
+    }
+
+    /* ----- ONGLETS ----- */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background-color: #00367e;
+      color: white;
+      font-weight: bold;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+
+    .tab:hover { background-color: #004ea8; }
+    .active-tab { background-color: #0056d2; }
+
+    /* ----- CONTENEUR GRAPHIQUE ----- */
+    .container {
+      background-color: white;
+      color: #00367e;
+      max-width: 1100px;
+      margin: 30px auto;
+      border-radius: 8px;
+      padding: 20px 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
+
+    h2 {
+      color: #00367e;
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .chart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 450px; /* hauteur ajustable */
+      margin-bottom: 30px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* --- INFOS SECTIONS --- */
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    .stat-box {
+      background-color: white;
+      color: #00367e;
+      flex: 1;
+      min-width: 280px;
+      border-radius: 6px;
+      padding: 15px 20px;
+      font-size: 0.95rem;
+      box-shadow: 0 0 6px rgba(0,0,0,0.15);
+    }
+
+    .stat-box h3 {
+      color: #00367e;
+      font-size: 1.1rem;
+      border-bottom: 2px solid #00367e;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+    }
+
+    .bold { font-weight: 700; }
+
+    @media (max-width: 768px) {
+      .header { font-size: 1.5rem; height: 140px; }
+      .stat-box { min-width: 100%; }
+      .chart-wrapper { height: 350px; }
+    }
+
+    @media (max-width: 480px) {
+      .chart-wrapper { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html">ACCUEIL</a><span>|</span>
+    <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+    <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+    <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+    <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+    <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+    <a href="conseils.html">CONSEILS</a>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="header">Stats & Performances</div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <div class="tab" onclick="location.href='stats-running.html'">RUNNING</div>
+    <div class="tab" onclick="location.href='stats-basketball.html'">BASKETBALL</div>
+    <div class="tab active-tab" onclick="location.href='stats-velo.html'">VÉLO</div>
+    <div class="tab" onclick="location.href='DEV.html'">...</div>
+    <div class="tab" onclick="location.href='DEV.html'">...</div>
+  </div>
+
+  <!-- GRAPH + DATA -->
+  <div class="container">
+    <h2>Cette année :</h2>
+    <div class="chart-wrapper">
+      <canvas id="veloChart"></canvas>
+    </div>
+  </div>
+
+  <!-- STATS SECTIONS -->
+  <div class="stats-grid">
+    <div class="stat-box">
+      <h3>Activité</h3>
+      <p><span class="bold">Moy. courses/semaine :</span> 1</p>
+      <p><span class="bold">Temps moy./semaine :</span> 24min05s</p>
+      <p><span class="bold">Distance moy./semaine :</span> 7,2 km</p>
+      <br>
+      <h3>Depuis le début de l’année</h3>
+      <p><span class="bold">Activités :</span> 6</p>
+      <p><span class="bold">Temps :</span> 5h36min</p>
+      <p><span class="bold">Distance :</span> 91,2 km</p>
+      <p><span class="bold">Dénivelé + :</span> 745 m</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>De tout temps</h3>
+      <p><span class="bold">Activités :</span> 8</p>
+      <p><span class="bold">Distance :</span> 110,5 km</p>
+      <p><span class="bold">Temps :</span> 6h53min</p>
+      <p><span class="bold">Dénivelé + :</span> 876 m</p>
+    </div>
+
+    <div class="stat-box">
+      <h3>Meilleurs efforts</h3>
+      <p><span class="bold">Sortie à vélo la plus longue :</span> 28,9 km</p>
+      <p><span class="bold">Plus grande ascension :</span> 71 m</p>
+      <p><span class="bold">Dénivelé + :</span> 309 m</p>
+      <br>
+      <p><span class="bold">5 miles :</span> 20:33</p>
+      <p><span class="bold">10 KM :</span> 29:11</p>
+      <p><span class="bold">10 miles :</span> 50:17</p>
+      <p><span class="bold">20 KM :</span> 01:03:00</p>
+    </div>
+  </div>
+
+  <!-- SCRIPT CHART.JS -->
+  <script>
+    const ctx = document.getElementById('veloChart');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['22/08/25', '25/08/25', '14/09/25', '04/10/25'],
+        datasets: [
+          { label: 'Distance (km)', data: [10, 13, 29, 29], borderColor: '#5ca9ff', backgroundColor: 'rgba(92,169,255,0.3)', fill: true },
+          { label: 'Temps (min)', data: [36.65, 46.56, 96.32, 96.36], borderColor: '#9bc4ff', backgroundColor: 'rgba(155,196,255,0.3)', fill: true },
+          { label: 'Vitesse moyenne (km/h)', data: [16, 17, 18, 18], borderColor: '#00bcd4', backgroundColor: 'rgba(0,188,212,0.3)', fill: true },
+          { label: 'Dénivelé + (m)', data: [33, 65, 309, 309], borderColor: '#004d80', backgroundColor: 'rgba(0,77,128,0.3)', fill: true }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { color: '#00367e', font: { size: 12 } } }
+        },
+        scales: {
+          x: { ticks: { color: '#00367e' } },
+          y: { ticks: { color: '#00367e' }, beginAtZero: true }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

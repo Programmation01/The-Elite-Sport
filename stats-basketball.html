@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Elite Sport - Stats Basketball</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e6eefc;
+      color: #00367e;
+    }
+
+    /* ----- NAVIGATION ----- */
+    nav {
+      background-color: #00367e;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      font-weight: 700;
+      padding: 12px 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    nav span {
+      color: white;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- HEADER IMAGE ----- */
+    .header {
+      background-image: url('banniere-3.png');
+      background-size: cover;
+      background-position: center;
+      text-align: center;     
+      padding: 25px 5px;      
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);      
+      font-size: 2.2em;      
+      font-weight: bold; 
+    }
+
+    /* ----- ONGLETS ----- */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background-color: #00367e;
+      color: white;
+      font-weight: bold;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+
+    .tab:hover {
+      background-color: #004ea8;
+    }
+
+    .active-tab {
+      background-color: #0056d2;
+    }
+
+    /* ----- CONTENU ----- */
+    .container {
+      background-color: white;
+      max-width: 1100px;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px 30px;
+    }
+
+    h2 {
+      color: #00367e;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ----- GRAPHIQUE RESPONSIVE ----- */
+    .chart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 450px; /* hauteur ajustable */
+      margin-bottom: 30px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* ----- RESPONSIVE ----- */
+    @media (max-width: 768px) {
+      .header { font-size: 1.5rem; padding: 20px 5px; }
+      .chart-wrapper { height: 350px; }
+    }
+
+    @media (max-width: 480px) {
+      .chart-wrapper { height: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">ACCUEIL</a><span>|</span>
+    <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+    <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+    <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+    <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+    <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+    <a href="conseils.html">CONSEILS</a>
+  </nav>
+
+  <!-- IMAGE + TITRE -->
+  <div class="header">Stats & Performances</div>
+
+  <!-- ONGLETS -->
+  <div class="tabs">
+    <div class="tab" onclick="location.href='stats-running.html'">RUNNING</div>
+    <div class="tab active-tab">BASKETBALL</div>
+    <div class="tab" onclick="location.href='stats-velo.html'">VÉLO</div>
+    <div class="tab" onclick="location.href='DEV.html'">...</div>
+    <div class="tab" onclick="location.href='DEV.html'">...</div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="container">
+    <h2>Cette année :</h2>
+    <div class="chart-wrapper">
+      <canvas id="basketChart"></canvas>
+    </div>
+  </div>
+
+  <!-- SCRIPT CHART.JS -->
+  <script>
+    const ctx = document.getElementById('basketChart');
+
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['JANVIER', 'FÉVRIER', 'MARS', 'AVRIL', 'MAI', 'JUIN', 'JUILLET', 'AOÛT', 'SEPTEMBRE', 'OCTOBRE', 'NOVEMBRE', 'DÉCEMBRE'],
+        datasets: [
+          { label: '3pts tentés', data: [139, 52, 0, 20, 60, 50, 0, 0, 0, 0, 0, 0], borderColor: '#5ca9ff', backgroundColor: 'rgba(92,169,255,0.2)', fill: true },
+          { label: '3pts réussis', data: [48, 24, 0, 10, 40, 6, 0, 0, 0, 0, 0, 0], borderColor: '#9bc4ff', backgroundColor: 'rgba(155,196,255,0.2)', fill: true },
+          { label: '% 3pts', data: [34.53, 46.15, 0, 50, 66.67, 12, 0, 0, 0, 0, 0, 0], borderColor: '#2673ff', backgroundColor: 'rgba(38,115,255,0.1)', fill: true },
+          { label: 'Passes décisives', data: [0, 5, 6, 0, 0, 3, 5, 0, 0, 0, 0, 0], borderColor: '#008080', backgroundColor: 'rgba(0,128,128,0.2)', fill: true },
+          { label: 'Interceptions', data: [4, 2, 0, 0, 5, 4, 0, 0, 0, 0, 0, 0], borderColor: '#004d40', backgroundColor: 'rgba(0,77,64,0.2)', fill: true },
+          { label: 'Pertes de balle', data: [8, 8, 0, 0, 8, 3, 0, 0, 0, 0, 0, 0], borderColor: '#00695c', backgroundColor: 'rgba(0,105,92,0.2)', fill: true },
+          { label: 'Contres', data: [3, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], borderColor: '#2e7d32', backgroundColor: 'rgba(46,125,50,0.2)', fill: true },
+          { label: 'Fautes', data: [5, 4, 0, 0, 5, 0, 0, 0, 0, 0, 0, 0], borderColor: '#66bb6a', backgroundColor: 'rgba(102,187,106,0.2)', fill: true },
+          { label: 'LF tentés', data: [50, 7, 0, 28, 80, 80, 0, 0, 0, 0, 0, 0], borderColor: '#cddc39', backgroundColor: 'rgba(205,220,57,0.2)', fill: true },
+          { label: 'LF réussis', data: [23, 5, 0, 10, 40, 40, 0, 0, 0, 0, 0, 0], borderColor: '#ffeb3b', backgroundColor: 'rgba(255,235,59,0.2)', fill: true },
+          { label: '% LF', data: [46, 71.43, 0, 35.71, 50, 50, 0, 0, 0, 0, 0, 0], borderColor: '#ffb300', backgroundColor: 'rgba(255,179,0,0.2)', fill: true },
+          { label: 'Tirs tentés', data: [189, 59, 0, 48, 140, 130, 0, 0, 0, 0, 0, 0], borderColor: '#ff9800', backgroundColor: 'rgba(255,152,0,0.2)', fill: true },
+          { label: 'Tirs réussis', data: [71, 29, 0, 20, 80, 46, 0, 0, 0, 0, 0, 0], borderColor: '#f57c00', backgroundColor: 'rgba(245,124,0,0.2)', fill: true },
+          { label: '% de réussite', data: [37.57, 49.15, 0, 41.66, 57.14, 35.38, 0, 0, 0, 0, 0, 0], borderColor: '#ef5350', backgroundColor: 'rgba(239,83,80,0.2)', fill: true },
+          { label: 'Points', data: [190, 82, 0, 50, 200, 98, 0, 0, 0, 0, 0, 0], borderColor: '#ff80ab', backgroundColor: 'rgba(255,128,171,0.2)', fill: true }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { color: '#00367e', font: { size: 12 } } }
+        },
+        scales: {
+          x: { ticks: { color: '#00367e' } },
+          y: { ticks: { color: '#00367e' }, beginAtZero: true }
+        }
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Erreur en cours de développement</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(to bottom, #e9f1ff, #ffffff);
+      color: #00367e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    nav {
+      background-color: #00367e;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      padding: 12px 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav span {
+      color: white;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      font-size: 48px;
+      color: #00367e;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #00367e;
+      margin-bottom: 40px;
+      line-height: 1.5;
+      max-width: 600px;
+    }
+
+    a.button {
+      background-color: #00367e;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    a.button:hover {
+      background-color: #0051b5;
+      transform: translateY(-2px);
+    }
+
+    footer {
+      background-color: #f1f5ff;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      color: #00367e;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 1024px) {
+      h1 {
+        font-size: 42px;
+      }
+      p {
+        font-size: 17px;
+      }
+      a.button {
+        padding: 12px 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 36px;
+      }
+      p {
+        font-size: 16px;
+        padding: 0 10px;
+      }
+      a.button {
+        width: 80%;
+        text-align: center;
+      }
+      header nav {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 30px;
+      }
+      p {
+        font-size: 15px;
+      }
+      a.button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">ACCUEIL</a><span>|</span>
+      <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+      <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+      <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+      <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+      <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+      <a href="conseils.html">CONSEILS</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <h1>🚧 Page en cours de développement 🚧</h1>
+    <p>Notre équipe travaille activement pour te proposer une nouvelle expérience.  
+       Reviens bientôt pour découvrir cette section mise à jour.</p>
+    <a href="index.html" class="button">← Retour à l’accueil</a>
+  </div>
+
+  <footer>
+    © 2025 TheEliteSport — Tous droits réservés.
+  </footer>
+</body>
+</html>

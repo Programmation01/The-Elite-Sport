@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Elite Sport - Stats & Performances</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* ----- STYLE GLOBAL ----- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #e6eefc;
+      color: #00367e;
+    }
+
+    /* ----- NAVIGATION ----- */
+    nav {
+      background-color: #00367e;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      padding: 12px 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav span {
+      color: white;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* ----- HEADER IMAGE ----- */
+    .header {
+      background-image: url('banniere-3.png');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 35px 10px;
+      color: white;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+      font-size: 2.3em;
+      font-weight: bold;
+    }
+
+    /* ----- ONGLETS ----- */
+    .tabs {
+      display: flex;
+      justify-content: center;
+      background-color: #00367e;
+      color: white;
+      font-weight: bold;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      flex: 1;
+      min-width: 150px;
+      text-align: center;
+      padding: 15px;
+      border: 1px solid white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .tab:hover {
+      background-color: #004ea8;
+    }
+
+    .active-tab {
+      background-color: #0056d2;
+    }
+
+    /* ----- CONTENU ----- */
+    .container {
+      background-color: white;
+      max-width: 1000px;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 20px 30px;
+    }
+
+    h2 {
+      color: #00367e;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ----- GRAPHIQUE RESPONSIVE ----- */
+    .chart-wrapper {
+      position: relative;
+      width: 100%;
+      height: 400px; /* hauteur par défaut, s’adapte selon l’écran */
+      margin-bottom: 30px;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 100% !important;
+    }
+
+    /* ----- STATISTIQUES ----- */
+    .stats-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .stats-box {
+      flex: 1;
+      min-width: 270px;
+      background-color: #f1f6ff;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .stats-box:hover {
+      transform: scale(1.02);
+    }
+
+    .stats-box h3 {
+      color: #00367e;
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      text-decoration: underline;
+    }
+
+    .stats-box p {
+      font-size: 1rem;
+      margin: 5px 0;
+    }
+
+    .highlight {
+      font-weight: 700;
+      color: #002f6c;
+    }
+
+    /* ----- RESPONSIVE DESIGN ----- */
+    @media (max-width: 1024px) {
+      .header { font-size: 1.9rem; padding: 25px 10px; }
+      .container { margin: 20px 10px; padding: 20px; }
+    }
+
+    @media (max-width: 768px) {
+      nav { gap: 8px; font-size: 0.9rem; text-align: center; }
+      .header { font-size: 1.6rem; }
+      .tab { min-width: 120px; padding: 12px; font-size: 0.9rem; }
+      h2 { font-size: 1.3rem; }
+      .stats-section { flex-direction: column; }
+      .stats-box { width: 100%; }
+    }
+
+    @media (max-width: 480px) {
+      nav { flex-direction: column; padding: 10px 5px; }
+      .tab { font-size: 0.8rem; padding: 10px; }
+      .header { font-size: 1.4rem; }
+      .stats-box h3 { font-size: 1.1rem; }
+      .stats-box p { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html">ACCUEIL</a><span>|</span>
+    <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+    <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+    <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+    <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+    <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+    <a href="conseils.html">CONSEILS</a>
+  </nav>
+
+  <!-- HEADER -->
+  <div class="header">Stats & Performances</div>
+
+  <!-- ONGLETS -->
+  <div class="tabs">
+    <div class="tab active-tab">RUNNING</div>
+    <div class="tab" onclick="location.href='stats-basketball.html'">BASKETBALL</div>
+    <div class="tab" onclick="location.href='stats-velo.html'">VÉLO</div>
+    <div class="tab" onclick="location.href='DEV.html'">...</div>
+    <div class="tab" onclick="location.href='DEV.html'">...</div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="container">
+    <h2>Cette année :</h2>
+
+    <!-- GRAPHIQUE -->
+    <div class="chart-wrapper">
+      <canvas id="statsChart"></canvas>
+    </div>
+
+    <!-- STATISTIQUES -->
+    <div class="stats-section">
+      <div class="stats-box">
+        <h3>Activité</h3>
+        <p><span class="highlight">Moy. courses/semaine :</span> 1</p>
+        <p><span class="highlight">Temps moy./semaine :</span> 1h 04min</p>
+        <p><span class="highlight">Distance moy./semaine :</span> 10 km</p>
+        <br>
+        <h3>Depuis le début de l’année</h3>
+        <p><span class="highlight">Courses à pied :</span> 15</p>
+        <p><span class="highlight">Temps :</span> 8h 23min</p>
+        <p><span class="highlight">Distance :</span> 83 km</p>
+        <p><span class="highlight">Dénivelé + :</span> 619 m</p>
+      </div>
+
+      <div class="stats-box">
+        <h3>De tout temps</h3>
+        <p><span class="highlight">Courses à pied :</span> 21</p>
+        <p><span class="highlight">Distance :</span> 94,4 km</p>
+        <p><span class="highlight">Temps :</span> 9h 23min</p>
+        <p><span class="highlight">Dénivelé + :</span> 654 m</p>
+      </div>
+
+      <div class="stats-box">
+        <h3>Meilleurs efforts</h3>
+        <p>400 m : <span class="highlight">01:30</span></p>
+        <p>½ miles : <span class="highlight">03:19</span></p>
+        <p>1 km : <span class="highlight">04:15</span></p>
+        <p>1 miles : <span class="highlight">07:37</span></p>
+        <p>2 miles : <span class="highlight">19:00</span></p>
+        <p>5 km : <span class="highlight">31:07</span></p>
+        <p>10 km : <span class="highlight">01:09:37</span></p>
+        <p>15 km : <span class="highlight">01:51:54</span></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT CHART.JS -->
+  <script>
+    const ctx = document.getElementById('statsChart');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['18/08/25', '15/09/25', '22/09/25', '29/09/25', '06/10/25', '13/10/25', '25/10/25'],
+        datasets: [
+          {
+            label: 'Distance (km)',
+            data: [4.61, 5.12, 10.94, 6.95, 8.01, 15.05, 4.03],
+            borderColor: '#5ca9ff',
+            backgroundColor: 'rgba(92,169,255,0.3)',
+            tension: 0.3,
+            fill: true
+          },
+          {
+            label: 'Temps (min)',
+            data: [27, 32.25, 66.40, 41.40, 51.32, 95.85, 22.29],
+            borderColor: '#99bfff',
+            backgroundColor: 'rgba(153,191,255,0.2)',
+            tension: 0.3,
+            fill: true
+          },
+          {
+            label: 'Allure moyenne (km/h)',
+            data: [5.51, 6.17, 6.31, 5.57, 6.24, 6.22, 5.34],
+            borderColor: '#88c7ff',
+            backgroundColor: 'rgba(136,199,255,0.2)',
+            tension: 0.3,
+            fill: true
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: { color: '#00367e', font: { size: 13 } }
+          }
+        },
+        scales: {
+          x: { ticks: { color: '#00367e' } },
+          y: { ticks: { color: '#00367e' }, beginAtZero: true }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

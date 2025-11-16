@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programmes Sportifs</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f8faff;
+    color: #002c6b;
+}
+
+/* ----- NAVBAR ----- */
+nav {
+    background-color: #00367e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 20px;
+    font-weight: 700;
+}
+nav a, nav span { color: white; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+/* ----- TITRE PRINCIPAL ----- */
+.titre-section {
+    background-image: url('banniere-5.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 30px 10px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    font-size: 2.4em;
+    font-weight: bold;
+}
+
+/* ----- GRILLE DES CARTES ----- */
+.grille {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 40px 50px;
+}
+
+.carte {
+    position: relative;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carte:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.carte img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    filter: brightness(0.92);
+    transition: transform 0.3s ease;
+}
+
+.carte:hover img { transform: scale(1.05); }
+
+.carte h3 {
+    margin: 10px 0 4px 0;
+    color: #003b91;
+    font-size: 1.3em;
+    letter-spacing: 0.5px;
+}
+
+.carte p {
+    font-size: 0.9em;
+    color: #004488;
+    margin-bottom: 15px;
+}
+
+/* ----- LIEN CLIQUABLE ----- */
+.carte a {
+    position: absolute;
+    inset: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 768px) {
+    .grille {
+        padding: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    }
+}
+@media (max-width: 480px) {
+    .grille {
+        padding: 15px;
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">ACCUEIL</a><span>|</span>
+        <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+        <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+        <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+        <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+        <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+        <a href="conseils.html">CONSEILS</a>
+    </nav>
+</header>
+
+<div class="titre-section">Programmes sportifs</div>
+
+<section class="grille">
+    <div class="carte">
+        <a href="running.html"></a>
+        <img src="running.png" alt="Running">
+        <h3>RUNNING</h3>
+        <p>Respire • Progresse • Transcende</p>
+    </div>
+
+    <div class="carte">
+        <a href="basketball.html"></a>
+        <img src="basketball.png" alt="Basketball">
+        <h3>BASKETBALL</h3>
+        <p>Domine • Inspire • Évolue</p>
+    </div>
+
+    <div class="carte">
+        <a href="velo.html"></a>
+        <img src="velo.png" alt="Vélo">
+        <h3>VÉLO</h3>
+        <p>Pédale • Persiste • Progresse</p>
+    </div>
+
+    <div class="carte">
+        <a href="volleyball.html"></a>
+        <img src="volleyball.png" alt="Volleyball">
+        <h3>VOLLEYBALL</h3>
+        <p>Puissance • Coordination • Élévation</p>
+    </div>
+
+    <div class="carte">
+        <a href="boxe.html"></a>
+        <img src="boxe.png" alt="Boxe">
+        <h3>BOXE</h3>
+        <p>Force • Maîtrise • Résilience</p>
+    </div>
+
+    <div class="carte">
+        <a href="triple-saut.html"></a>
+        <img src="triple-saut.png" alt="Triple Saut">
+        <h3>TRIPLE SAUT</h3>
+        <p>Puissance • Précision • Envol</p>
+    </div>
+
+    <div class="carte">
+        <a href="natation.html"></a>
+        <img src="natation.png" alt="Natation">
+        <h3>NATATION</h3>
+        <p>Technique • Endurance • Puissance</p>
+    </div>
+
+    <div class="carte">
+        <a href="tennis.html"></a>
+        <img src="tennis.png" alt="Tennis">
+        <h3>TENNIS</h3>
+        <p>Technique • Endurance • Stratégie</p>
+    </div>
+
+    <div class="carte">
+        <a href="football.html"></a>
+        <img src="football.png" alt="Football">
+        <h3>FOOTBALL</h3>
+        <p>Tactique • Performance • Analyse</p>
+    </div>
+
+    <div class="carte">
+        <a href="handball.html"></a>
+        <img src="handball.png" alt="Handball">
+        <h3>HANDBALL</h3>
+        <p>Technique • Agilité • Tactique</p>
+    </div>
+
+    <div class="carte">
+        <a href="rugby.html"></a>
+        <img src="rugby.png" alt="Rugby">
+        <h3>RUGBY</h3>
+        <p>Force • Endurance • Tactique</p>
+    </div>
+
+    <div class="carte">
+        <a href="ski.html"></a>
+        <img src="ski.png" alt="Ski">
+        <h3>SKI</h3>
+        <p>Vitesse • Équilibre • Technique</p>
+    </div>
+</section>
+
+</body>
+</html>

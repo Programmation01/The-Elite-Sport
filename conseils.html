@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conseils | MyAthlete</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: #fff;
+      color: #002d73;
+    }
+
+    /* --- Header --- */
+    nav {
+      background-color: #00367e;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      font-weight: 700;
+      padding: 12px 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    nav span {
+      color: white;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+    
+    /* --- Image top --- */
+    .banner {
+      background-image: url('Banniere-5.png');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+      padding: 40px 10px;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      font-size: 2.2em;
+      font-weight: bold;
+    }
+
+    /* --- Contenu --- */
+    .content {
+      max-width: 1200px;
+      margin: 60px auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 40px;
+      padding: 0 20px;
+    }
+
+    section {
+      border-left: 4px solid #0046a8;
+      padding-left: 20px;
+    }
+
+    section h2 {
+      color: #5aa8ff;
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+
+    .question {
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 12px;
+    }
+
+    .answer {
+      margin-bottom: 10px;
+      font-size: 15px;
+      line-height: 1.4;
+      color: #002d73;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 1024px) {
+      .content {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin: 40px auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .banner {
+        font-size: 32px;
+        padding: 30px 10px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px 10px;
+      }
+      nav a, nav span {
+        font-size: 0.95rem;
+      }
+      .content {
+        grid-template-columns: 1fr;
+        margin: 20px auto;
+        gap: 25px;
+      }
+      section {
+        border-left: none;
+        border-top: 4px solid #0046a8;
+        padding-left: 10px;
+        padding-top: 15px;
+      }
+      section h2 {
+        font-size: 20px;
+      }
+      .question {
+        font-size: 15px;
+      }
+      .answer {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .banner {
+        font-size: 28px;
+        padding: 25px 5px;
+      }
+      nav a, nav span {
+        font-size: 0.9rem;
+      }
+      .content {
+        padding: 0 10px;
+      }
+      section h2 {
+        font-size: 18px;
+      }
+      .question {
+        font-size: 14px;
+      }
+      .answer {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+        <a href="index.html">ACCUEIL</a><span>|</span>
+        <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+        <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+        <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+        <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+        <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+        <a href="conseils.html">CONSEILS</a>
+    </nav>
+  </header>
+
+  <div class="banner">Conseils</div>
+
+  <div class="content">
+
+    <!-- Énergie & Motivation -->
+    <section>
+      <h2>Énergie & Motivation</h2>
+      <div class="question">Que faire quand la fatigue mentale prend le dessus ?</div>
+      <div class="answer">Se souvenir du “pourquoi”. La fatigue parle, mais la vision décide.</div>
+
+      <div class="question">Comment rester constant quand la motivation baisse ?</div>
+      <div class="answer">Remplace la motivation par la discipline. Le corps obéit, le mental suivra.</div>
+
+      <div class="question">Comment surmonter la peur de l’échec ?</div>
+      <div class="answer">Accepte-le comme un coach. Chaque échec est un rapport de progression.</div>
+    </section>
+
+    <!-- Entraînement & Performance -->
+    <section>
+      <h2>Entraînement & Performance</h2>
+      <div class="question">Comment améliorer sa détente verticale ?</div>
+      <div class="answer">Entraîne tes jambes comme un sprinteur, pas comme un bodybuilder. Explosivité avant volume.</div>
+
+      <div class="question">Comment devenir plus rapide sur les appuis ?</div>
+      <div class="answer">Priorise les exercices de réaction. L’instinct se muscle comme un biceps.</div>
+
+      <div class="question">Combien de séances par semaine pour progresser ?</div>
+      <div class="answer">Assez pour avancer, pas assez pour se briser. Trouve ton point d’équilibre.</div>
+    </section>
+
+    <!-- Mental & Résilience -->
+    <section>
+      <h2>Mental & Résilience</h2>
+      <div class="question">Que faire quand on perd confiance ?</div>
+      <div class="answer">Reviens à la base : ton premier tir, ton premier run, ton premier rêve.</div>
+
+      <div class="question">Comment rester fort quand tout ralentit ?</div>
+      <div class="answer">En se souvenant que la lenteur est parfois le rythme du progrès.</div>
+
+      <div class="question">Comment gérer la pression avant un match ?</div>
+      <div class="answer">Respire, centre-toi. La pression est un privilège, pas une punition.</div>
+    </section>
+
+    <!-- Nutrition & Récupération -->
+    <section>
+      <h2>Nutrition & Récupération</h2>
+      <div class="question">Quelle boisson pendant l’entraînement ?</div>
+      <div class="answer">Eau + électrolytes + concentration. Rien de plus, rien de moins.</div>
+
+      <div class="question">Que manger avant un match ?</div>
+      <div class="answer">Léger, équilibré, fonctionnel. Des glucides lents, un peu de protéines, pas d’excès.</div>
+
+      <div class="question">Et après l’effort ?</div>
+      <div class="answer">Répare. Eau, protéines, repos, silence. La croissance se fait dans le calme.</div>
+    </section>
+
+    <!-- Équipement & Préparation -->
+    <section>
+      <h2>Équipement & Préparation</h2>
+      <div class="question">Comment choisir ton ballon ?</div>
+      <div class="answer">Poids, texture, grip. Le ballon doit prolonger ta main, pas la remplacer.</div>
+
+      <div class="question">Quelle chaussure pour la performance ?</div>
+      <div class="answer">Celle qui disparaît à tes pieds. L’équipement parfait, c’est celui que tu oublies.</div>
+
+      <div class="question">Faut-il investir dans du matériel cher ?</div>
+      <div class="answer">Pas toujours. Ce qui compte, c’est ta constance, pas ton budget.</div>
+    </section>
+
+    <!-- Progression & Vision -->
+    <section>
+      <h2>Progression & Vision</h2>
+      <div class="question">Quelle est la clé du succès sportif ?</div>
+      <div class="answer">La constance invisible. Ceux qui gagnent, ce sont ceux qui s’entraînent quand personne ne les regarde.</div>
+
+      <div class="question">Comment savoir si on progresse ?</div>
+      <div class="answer">Quand l’effort devient plus précis, pas forcément plus facile.</div>
+
+      <div class="question">Quand faut-il se reposer ?</div>
+      <div class="answer">Quand tu sens que tu n’apprends plus. Le repos, c’est de l’entraînement silencieux.</div>
+    </section>
+
+  </div>
+</body>
+</html>

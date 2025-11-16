@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Objectifs - 10 KM</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background-color: #e6eefc;
+        color: #00367e;
+    }
+
+    header {
+        background: #00367e;
+        color: white;
+        font-weight: bold;
+        padding: 15px 10px;
+        text-align: center;
+    }
+    header nav a {
+        color: white;
+        text-decoration: none;
+        margin: 0 8px;
+    }
+
+    h2, h3, h1 {
+        text-align: center;
+        color: #00367e;
+        margin: 10px 0;
+    }
+    h1 { font-size: 2.5em; font-weight: 700; }
+
+    .retour {
+        display: block;
+        width: 120px;
+        background-color: #00367e;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 10px auto 25px auto;
+    }
+    .retour:hover { background-color: #002b5c; }
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background: #b5dbff;
+        margin: 20px auto;
+        border-radius: 10px;
+        padding: 15px;
+        max-width: 1200px;
+        gap: 15px;
+    }
+
+    .block {
+        flex: 1 1 300px;
+        background: #ffffff;
+        border-radius: 10px;
+        padding: 15px;
+        box-shadow: 0 3px rgba(0,0,0,0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 1em;
+        margin-bottom: 15px;
+    }
+    th, td {
+        padding: 6px 10px;
+    }
+    th {
+        text-align: left;
+        color: #00367e;
+        font-size: 1.2em;
+        border-bottom: 2px solid #00367e;
+    }
+
+    #map {
+        background: url('10km-map.png') no-repeat center;
+        background-size: cover;
+        border-radius: 8px;
+        height: 250px;
+        width: 100%;
+    }
+
+    #chart-container {
+        width: 100%;
+        height: 250px;
+    }
+
+    @media (max-width: 800px) {
+        .container { flex-direction: column; }
+        .block { flex: 1 1 100%; }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">ACCUEIL</a><span>|</span>
+        <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+        <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+        <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+        <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+        <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+        <a href="conseils.html">CONSEILS</a>
+    </nav>
+</header>
+
+<h2>Objectifs</h2>
+<h1>10 KM</h1>
+<h3>Confiance activée</h3>
+<a class="retour" href="objectifs.html">RETOUR</a>
+
+<div class="container">
+    <div class="block">
+        <table>
+            <tr><th>Activité</th></tr>
+            <tr><td><b>Distance :</b> 10.18 km</td></tr>
+            <tr><td><b>Durée :</b> 01:06:24</td></tr>
+            <tr><td><b>Allure moy :</b> 6:31 /km</td></tr>
+            <tr><td><b>Dénivelé + :</b> 142 m</td></tr>
+            <tr><td><b>Calories :</b> 739 kcal</td></tr>
+            <tr><td><b>Altitude max :</b> 328 m</td></tr>
+        </table>
+        <div id="map"></div>
+    </div>
+
+    <div class="block">
+        <table>
+            <tr><th>Meilleurs efforts</th></tr>
+            <tr><td>400 m — 1:57 — 4:53/km</td></tr>
+            <tr><td>½ mile — 4:09 — 5:09/km</td></tr>
+            <tr><td>1 km — 5:07 — 5:07/km</td></tr>
+            <tr><td>1 mile — 8:28 — 5:16/km</td></tr>
+            <tr><td>2 miles — 19:14 — 5:58/km</td></tr>
+            <tr><td>5 km — 33:44 — 6:45/km</td></tr>
+            <tr><td>10 km — 01:12:28 — 7:15/km</td></tr>
+        </table>
+        <div id="chart-container">
+            <canvas id="allureChart"></canvas>
+        </div>
+    </div>
+
+    <div class="block">
+        <table>
+            <tr><th>Temps intermédiaires</th></tr>
+            <tr><td>1 km — 6:04</td></tr>
+            <tr><td>2 km — 6:48</td></tr>
+            <tr><td>3 km — 7:32</td></tr>
+            <tr><td>4 km — 7:15</td></tr>
+            <tr><td>5 km — 6:43</td></tr>
+            <tr><td>6 km — 7:04</td></tr>
+            <tr><td>7 km — 7:04</td></tr>
+            <tr><td>8 km — 5:56</td></tr>
+            <tr><td>9 km — 5:14</td></tr>
+            <tr><td>10 km — 5:44</td></tr>
+            <tr><td>0,1 km — 5:23</td></tr>
+        </table>
+    </div>
+</div>
+
+<script>
+const ctx = document.getElementById('allureChart').getContext('2d');
+new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ['1 km','2 km','3 km','4 km','5 km','6 km','7 km','8 km','9 km','10 km','0.1 km'],
+        datasets: [{
+            label: 'Allure (min/km)',
+            data: [6.04,6.48,7.32,7.15,6.43,7.04,7.04,5.56,5.14,5.44,5.23],
+            borderColor: '#004aad',
+            backgroundColor: 'rgba(0, 74, 173, 0.2)',
+            fill: true,
+            tension: 0.3,
+            pointRadius: 5,
+            pointBackgroundColor: '#004aad'
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            y: {
+                beginAtZero: false,
+                reverse: true,
+                title: { display: true, text: 'Minutes / km' }
+            },
+            x: { title: { display: true, text: 'Distance (km)' } }
+        }
+    }
+});
+</script>
+
+</body>
+</html>

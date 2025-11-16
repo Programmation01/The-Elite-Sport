@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Programme Natation</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #ffffff;
+    color: #002c6b;
+}
+
+/* ----- NAVBAR ----- */
+nav {
+    background-color: #00367e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 12px 20px;
+    font-weight: 700;
+}
+nav a, nav span { color: white; text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+
+/* ----- TITRE PRINCIPAL ----- */
+.titre-section {
+    background-image: url('Banniere-1.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 40px 10px;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+/* ----- CONTENU PRINCIPAL ----- */
+.contenu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 60px;
+    gap: 40px;
+}
+
+/* ----- IMAGE GAUCHE ----- */
+.image-container {
+    flex: 1;
+    min-width: 320px;
+    max-width: 400px;
+    position: relative;
+}
+.image-container img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+.image-container img:hover { transform: scale(1.03); }
+
+/* ----- TEXTE DROITE ----- */
+.texte {
+    flex: 1;
+    min-width: 300px;
+}
+.texte h1 {
+    color: #003b91;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+.texte h3 {
+    color: #003b91;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.texte p {
+    font-size: 1.1em;
+    line-height: 1.6em;
+    margin: 8px 0;
+}
+.texte ul {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+.texte ul li { margin: 6px 0; }
+
+/* ----- BOUTON ----- */
+.btn-telecharger {
+    display: inline-block;
+    background-color: #003b91;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 1.1em;
+    transition: background-color 0.3s, transform 0.3s;
+}
+.btn-telecharger:hover {
+    background-color: #0057d9;
+    transform: translateY(-3px);
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 768px) {
+    .contenu { flex-direction: column; padding: 20px; align-items: center; }
+    .texte h1, .texte h3, .texte p { text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <a href="index.html">ACCUEIL</a><span>|</span>
+        <a href="stats-running.html">STATS & PERFORMANCES</a><span>|</span>
+        <a href="objectifs.html">OBJECTIFS</a><span>|</span>
+        <a href="profil-sportif.html">PROFIL SPORTIF</a><span>|</span>
+        <a href="programmes.html">PROGRAMMES SPORTIFS</a><span>|</span>
+        <a href="equipement.html">ÉQUIPEMENT</a><span>|</span>
+        <a href="conseils.html">CONSEILS</a>
+    </nav>
+</header>
+
+<div class="titre-section">Programme Natation</div>
+
+<section class="contenu">
+    <div class="image-container">
+        <img src="natation.png" alt="Programme Natation">
+    </div>
+
+    <div class="texte">
+        <h1>NATATION</h1>
+        <p>Technique</p>
+        <p>Endurance</p>
+        <p>Puissance</p>
+
+        <h3>Ce qu’il contient :</h3>
+        <ul>
+            <B>Programme N°1 :</B>
+            <li>Mental</li>
+            <li>Physique</li>
+            <li>Nutrition</li>
+            <B>Programme N°2 :</B>
+            <li>Physique</li>
+            <B>Programme N°3 :</B>
+            <li>Générale</li>
+        </ul>
+
+        <a href="lien.com" class="btn-telecharger" download>TÉLÉCHARGER LE PROGRAMME</a>
+    </div>
+</section>
+
+</body>
+</html>
